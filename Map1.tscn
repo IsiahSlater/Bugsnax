@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr451dli1lgj8"]
+[gd_scene load_steps=3 format=3 uid="uid://dr451dli1lgj8"]
 
 [ext_resource type="PackedScene" uid="uid://ddk3miofhk44i" path="res://player.tscn" id="1_u8xs1"]
+[ext_resource type="PackedScene" uid="uid://cx3yrkvf08fh4" path="res://mob.tscn" id="2_xudwl"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -10,3 +11,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98702e-05, 0.0905516, -0.0
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(9.97124, 0, 0, 0, 0.115796, 0, 0, 0, 9.97124, 0, 0, 0)
 use_collision = true
+
+[node name="Mob" parent="." instance=ExtResource("2_xudwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42711, 0.0870261, 0)
+collision_layer = 4

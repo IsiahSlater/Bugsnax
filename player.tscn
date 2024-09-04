@@ -9,6 +9,8 @@ radial_segments = 16
 rings = 7
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_i2ppe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -23,3 +25,8 @@ mesh = SubResource("CapsuleMesh_pme1k")
 
 [node name="Camera3D" type="Camera3D" parent="Body/Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496294, 0.0476152)
+
+[node name="grabRange" type="RayCast3D" parent="Body/Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0629649, -0.0476152)
+target_position = Vector3(0, 0, -2)
+collision_mask = 4

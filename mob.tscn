@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx3yrkvf08fh4"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_dd8dl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhf1c"]
+
+[node name="Mob" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_dd8dl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485232, 0)
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485626, 0)
+shape = SubResource("BoxShape3D_qhf1c")

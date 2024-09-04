@@ -8,6 +8,8 @@ var sens = .5
 @onready var camera := $Body/Neck/Camera3D
 @onready var neck := $Body/Neck
 
+@onready var grabber := $Body/Neck/Camera3D/grabRange
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -19,7 +21,9 @@ func _unhandled_input(event):
 			neck.rotate_y(-event.relative.x * .01 * sens)
 			camera.rotate_x(-event.relative.y * .01 * sens)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
-		
+			
+	
+	
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -46,10 +50,10 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	
-	# Get Mouse Position
-	# Get vector from position to middle of screen
-	
-	# Rotate character based on Vector
+	if Input.is_action_just_pressed("grab") and grabber.is_colliding():
+		var target = grabber.get_collider()
+		target.gotten()
+		
 	
 	move_and_slide()
 	
